@@ -1,0 +1,302 @@
+const destinations = [
+  {
+    id: "dest-goa",
+    name: "Goa",
+    country: "India",
+    airportCode: "GOI",
+    description: "Sun-soaked beaches, nightlife, and Portuguese heritage along India's western coast.",
+    heroImage:
+      "https://images.unsplash.com/photo-1534447677768-be436bb09401?auto=format&fit=crop&w=1200&q=80",
+    tags: ["beach", "nightlife", "family"],
+    bestTimeToVisit: "Oct-Mar",
+    averagePrice: 11000,
+  },
+  {
+    id: "dest-dubai",
+    name: "Dubai",
+    country: "UAE",
+    airportCode: "DXB",
+    description: "Iconic skyline, luxury shopping, and desert adventures in the United Arab Emirates.",
+    heroImage:
+      "https://images.unsplash.com/photo-1526481280695-3c46977f79d4?auto=format&fit=crop&w=1200&q=80",
+    tags: ["luxury", "shopping", "adventure"],
+    bestTimeToVisit: "Nov-Apr",
+    averagePrice: 32000,
+  },
+  {
+    id: "dest-kerala",
+    name: "Kerala",
+    country: "India",
+    airportCode: "COK",
+    description: "Backwaters, hill stations, and ayurvedic retreats along the Malabar Coast.",
+    heroImage:
+      "https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=1200&q=80",
+    tags: ["nature", "wellness", "family"],
+    bestTimeToVisit: "Sep-Mar",
+    averagePrice: 14000,
+  },
+  {
+    id: "dest-bali",
+    name: "Bali",
+    country: "Indonesia",
+    airportCode: "DPS",
+    description: "Tropical island known for temples, surfing, and rice terraces.",
+    heroImage:
+      "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1200&q=80",
+    tags: ["beach", "culture", "wellness"],
+    bestTimeToVisit: "Apr-Oct",
+    averagePrice: 45000,
+  },
+  {
+    id: "dest-paris",
+    name: "Paris",
+    country: "France",
+    airportCode: "CDG",
+    description: "Romantic boulevards, art museums, and iconic landmarks in France's capital.",
+    heroImage:
+      "https://images.unsplash.com/photo-1522098543979-ffc7f79d5e0f?auto=format&fit=crop&w=1200&q=80",
+    tags: ["romantic", "culture", "luxury"],
+    bestTimeToVisit: "Apr-Jun",
+    averagePrice: 62000,
+  },
+];
+
+const flights = [
+  {
+    id: "flt-1",
+    from: "DEL",
+    to: "GOI",
+    date: "2025-12-22",
+    departureTime: "07:45",
+    arrivalTime: "10:15",
+    duration: "2h 30m",
+    airline: "IndiGo",
+    price: 5400,
+    stops: 0,
+    cabinClass: "Economy",
+    baggage: {
+      cabin: "7kg",
+      checkIn: "15kg",
+    },
+  },
+  {
+    id: "flt-2",
+    from: "BOM",
+    to: "DXB",
+    date: "2025-12-24",
+    departureTime: "12:30",
+    arrivalTime: "14:00",
+    duration: "3h 00m",
+    airline: "Emirates",
+    price: 21500,
+    stops: 0,
+    cabinClass: "Economy",
+    baggage: {
+      cabin: "7kg",
+      checkIn: "25kg",
+    },
+  },
+  {
+    id: "flt-3",
+    from: "DEL",
+    to: "COK",
+    date: "2025-12-23",
+    departureTime: "09:15",
+    arrivalTime: "12:05",
+    duration: "2h 50m",
+    airline: "Air India",
+    price: 6700,
+    stops: 0,
+    cabinClass: "Economy",
+    baggage: {
+      cabin: "7kg",
+      checkIn: "20kg",
+    },
+  },
+  {
+    id: "flt-4",
+    from: "DEL",
+    to: "CDG",
+    date: "2025-12-26",
+    departureTime: "01:10",
+    arrivalTime: "06:40",
+    duration: "9h 00m",
+    airline: "Air France",
+    price: 58500,
+    stops: 0,
+    cabinClass: "Premium Economy",
+    baggage: {
+      cabin: "12kg",
+      checkIn: "23kg",
+    },
+  },
+  {
+    id: "flt-5",
+    from: "BLR",
+    to: "DPS",
+    date: "2025-12-28",
+    departureTime: "22:25",
+    arrivalTime: "07:15",
+    duration: "6h 20m",
+    airline: "Singapore Airlines",
+    price: 38500,
+    stops: 1,
+    layover: "SIN",
+    cabinClass: "Economy",
+    baggage: {
+      cabin: "7kg",
+      checkIn: "30kg",
+    },
+  },
+];
+
+const hotels = [
+  {
+    id: "htl-1",
+    destinationId: "dest-goa",
+    name: "Beachfront Escape Resort",
+    rating: 4.5,
+    reviews: 1260,
+    pricePerNight: 7200,
+    location: "Calangute Beach",
+    amenities: ["Pool", "Breakfast included", "Free WiFi", "Spa"],
+    images: [
+      "https://images.unsplash.com/photo-1505691938895-1758d7feb511?auto=format&fit=crop&w=800&q=80",
+    ],
+  },
+  {
+    id: "htl-2",
+    destinationId: "dest-dubai",
+    name: "Skyline Luxury Suites",
+    rating: 4.8,
+    reviews: 980,
+    pricePerNight: 18500,
+    location: "Downtown Dubai",
+    amenities: ["Infinity Pool", "Butler service", "Desert safari concierge"],
+    images: [
+      "https://images.unsplash.com/photo-1501117716987-c8e1ecb21070?auto=format&fit=crop&w=800&q=80",
+    ],
+  },
+  {
+    id: "htl-3",
+    destinationId: "dest-kerala",
+    name: "Backwater Serenity Houseboats",
+    rating: 4.6,
+    reviews: 540,
+    pricePerNight: 9800,
+    location: "Allepey",
+    amenities: ["Houseboat stay", "Traditional meals", "Ayurvedic spa"],
+    images: [
+      "https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?auto=format&fit=crop&w=800&q=80",
+    ],
+  },
+  {
+    id: "htl-4",
+    destinationId: "dest-bali",
+    name: "Ubud Rainforest Villas",
+    rating: 4.7,
+    reviews: 760,
+    pricePerNight: 14200,
+    location: "Ubud",
+    amenities: ["Infinity pool", "Yoga pavilion", "Cooking classes"],
+    images: [
+      "https://images.unsplash.com/photo-1509899542450-6b7e63dbba0c?auto=format&fit=crop&w=800&q=80",
+    ],
+  },
+  {
+    id: "htl-5",
+    destinationId: "dest-paris",
+    name: "Champs-Élysées Boutique Hotel",
+    rating: 4.9,
+    reviews: 1820,
+    pricePerNight: 32500,
+    location: "Paris 8th arrondissement",
+    amenities: ["Michelin dining", "Concierge", "Eiffel Tower views"],
+    images: [
+      "https://images.unsplash.com/photo-1528901166007-3784c7dd3653?auto=format&fit=crop&w=800&q=80",
+    ],
+  },
+];
+
+const experiences = [
+  {
+    id: "exp-1",
+    destinationId: "dest-goa",
+    title: "North Goa Beach Hopping",
+    category: "Adventure",
+    price: 2200,
+    duration: "6 hours",
+    description: "Guided tour covering Baga, Anjuna, and Vagator beaches with water sports.",
+    image:
+      "https://images.unsplash.com/photo-1496417263034-38ec4f0b665a?auto=format&fit=crop&w=800&q=80",
+  },
+  {
+    id: "exp-2",
+    destinationId: "dest-dubai",
+    title: "Desert Safari with BBQ Dinner",
+    category: "Adventure",
+    price: 3800,
+    duration: "5 hours",
+    description: "Dune bashing, camel rides, and cultural performances concluding with a BBQ dinner.",
+    image:
+      "https://images.unsplash.com/photo-1500534623283-312aade485b7?auto=format&fit=crop&w=800&q=80",
+  },
+  {
+    id: "exp-3",
+    destinationId: "dest-kerala",
+    title: "Munnar Tea Estate Walk",
+    category: "Nature",
+    price: 1800,
+    duration: "3 hours",
+    description: "Private tour of lush tea plantations with tasting session and local guide.",
+    image:
+      "https://images.unsplash.com/photo-1518611012118-696072aa579a?auto=format&fit=crop&w=800&q=80",
+  },
+  {
+    id: "exp-4",
+    destinationId: "dest-bali",
+    title: "Ubud Cultural Evening",
+    category: "Culture",
+    price: 2600,
+    duration: "4 hours",
+    description: "Traditional Kecak dance performance with Balinese dinner experience.",
+    image:
+      "https://images.unsplash.com/photo-1497032205916-ac775f0649ae?auto=format&fit=crop&w=800&q=80",
+  },
+  {
+    id: "exp-5",
+    destinationId: "dest-paris",
+    title: "Seine River Sunset Cruise",
+    category: "Romantic",
+    price: 5400,
+    duration: "2 hours",
+    description: "Champagne cruise highlighting illuminated Parisian landmarks.",
+    image:
+      "https://images.unsplash.com/photo-1522098543979-ffc7f79d5e0f?auto=format&fit=crop&w=800&q=80",
+  },
+];
+
+const offers = [
+  {
+    id: "offer-1",
+    title: "Festive Sale: Goa Getaways",
+    description: "Up to 20% off on Goa flights + hotels combo packages.",
+    code: "GOAFEST20",
+    validTill: "2025-12-31",
+  },
+  {
+    id: "offer-2",
+    title: "Early Bird Dubai Deals",
+    description: "Flat ₹5000 off on Dubai bookings above ₹40,000.",
+    code: "DXB5000",
+    validTill: "2025-12-15",
+  },
+];
+
+module.exports = {
+  destinations,
+  flights,
+  hotels,
+  experiences,
+  offers,
+};
